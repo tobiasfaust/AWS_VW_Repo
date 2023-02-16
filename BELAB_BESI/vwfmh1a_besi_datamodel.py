@@ -100,7 +100,7 @@ bedarfslauf_df = df.select(['BEDARFSTRAEGER_ID', 'BEDARFSLAUF_ID', 'BESI_RECHNUN
 bedarfslauf_path = 's3://vwgroup-dlp-source-ssf-confidential/user/vwfmh1a/data/bb_bedarfe/bedarfslauf'
 
 bedarfslauf_df.write\
-.partionBy("BESI_RECHNUNG","BESI_LAUFDATUM", "WERK")\
+.partitionBy("BESI_RECHNUNG","BESI_LAUFDATUM", "WERK")\
 .option("partitionOverwriteMode","dynamic")\
 .mode('overwrite')\
 .parquet(bedarfslauf_path)
@@ -154,7 +154,7 @@ bedarfsmenge_df = df.join(F.broadcast(ref))\
      "etl_time",
      "BEDARFSTRAEGER_ID")\
 .write\
-.partionBy("BESI_RECHNUNG","BESI_LAUFDATUM", "WERK")\
+.partitionBy("BESI_RECHNUNG","BESI_LAUFDATUM", "WERK")\
 .option("partitionOverwriteMode","dynamic")\
 .mode('overwrite')\
 .parquet(bedarfsmenge_path)
