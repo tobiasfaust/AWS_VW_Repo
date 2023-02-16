@@ -1,0 +1,35 @@
+{
+  "name" : "vwfmh1a_besi_datamodel",
+  "description" : "",
+  "role" : "arn:aws:iam::733049214340:role/VWAG_DLP_QA_GLUE_STUDIO",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-733049214340-eu-west-1/scripts/vwfmh1a_besi_datamodel.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--encryption-type" : "sse-s3",
+    "--enable-job-insights" : "false",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-733049214340-eu-west-1/temporary/",
+    "--enable-glue-datacatalog" : "true",
+    "library-set" : "analytics"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 2880,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "3.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "AWS_VW_Repo",
+    "branch" : "main",
+    "folder" : "BELAB_BESI"
+  }
+}
